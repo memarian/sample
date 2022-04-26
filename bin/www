@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+const app = require('../app');
+const app_port = process.env.APP_PORT;
+async function startApp() {
+  app.listen(app_port, (err) => {
+    if (err) {
+      console.error(err);
+    }
+    console.debug(`listening on port ${app_port}`);
+  });
+}
+startApp();

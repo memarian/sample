@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  app:
+    image: node
+    command: bash -c "npm install -g pnpm && pnpm install -g pm2 && pnpm run start:dev"
+    working_dir: /home/node
+    volumes:
+      - .:/home/node
+    ports:
+      - 3000:3000
+
+  mdb:
+    image: test_db
+    volumes:
+      - /data/db:/data/db
